@@ -25,12 +25,12 @@ jobs:
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      - name: Run Snyk Test (do not fail build)
+      - name: Run Snyk Test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk test --exit-code=0
+        run: snyk test
 
-      - name: Run Snyk Monitor
+      - name: Monitor Project with Snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: snyk monitor
